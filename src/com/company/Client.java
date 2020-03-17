@@ -49,8 +49,21 @@ public class Client {
                 e.printStackTrace();
             }
         }).start();
-
-
+        
+        public void sendMessage() {
+            scanner = new Scanner(System.in);
+            new Thread(() -> {
+                System.out.println("Type your message: ");
+                while (true) {
+                    String message = scanner.nextLine();
+                    try {
+                        out.writeUTF(message);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        }
     }
 
    
