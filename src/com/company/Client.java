@@ -23,11 +23,12 @@ public class Client {
             e.printStackTrace();
         }
     }
-
+    //start client
     public static void main(String[] args) {
         new Client();
     }
 
+    //perform connection
     public void connect() throws IOException {
         socket = new Socket(SERVER_PATH, PORT);
         in = new DataInputStream(socket.getInputStream());
@@ -52,7 +53,7 @@ public class Client {
 
 
     }
-
+    //send message
     public void sendMessage() {
         scanner = new Scanner(System.in);
         new Thread(() -> {
